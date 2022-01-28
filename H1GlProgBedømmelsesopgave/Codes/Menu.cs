@@ -27,7 +27,7 @@ namespace H1GlProgBedømmelsesopgave.Codes
                     if (Navn != null)
                     {
                         H1.course i = H1.Searcher(Søgeord.Fag, Navn);
-                        string teacher = i.value1.ToString();
+                        List<string> teacher = (List<string>)i.value1;
                         List<Students> students = (List<Students>)i.value2;
                     }
                     break;
