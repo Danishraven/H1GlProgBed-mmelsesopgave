@@ -15,8 +15,9 @@ namespace H1GlProgBedømmelsesopgave.Codes
     internal class H1
     {
         public record course(object value1, object value2);
-
         public static object[,] AllData = new object[3, 4];
+        public static DateTime Start { get; set; }
+        public static DateTime Slut { get; set; }
         static H1()
         {
             List<Students> glElever = new List<Students> 
@@ -93,6 +94,12 @@ namespace H1GlProgBedømmelsesopgave.Codes
             }
             return new course(value1, value2);
         }
-
+        public static int Tid(DateTime nu)
+        {
+            DateTime Nu = nu;
+            DateTime Slut = new DateTime(2022, 2, 14);
+            DateTime Start = new DateTime(2022, 1, 17);
+            return new DatoBeregner(Nu, Slut).Dage;
+        }
     }
 }

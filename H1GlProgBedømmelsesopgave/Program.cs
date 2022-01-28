@@ -1,4 +1,5 @@
-﻿while (true)
+﻿Console.WriteLine(H1.Tid(DateTime.Now));
+while (true)
 {
     //Console.Clear();
     Console.WriteLine("1) Fag");
