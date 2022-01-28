@@ -12,7 +12,7 @@ namespace H1GlProgBedømmelsesopgave.Codes
         Lærer,
         Elev
     }
-    internal class H1
+    internal class H1: InterfaceH1
     {
         public record course(object value1, object value2);
         public static object[,] AllData = new object[3, 4];

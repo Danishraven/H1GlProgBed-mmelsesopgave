@@ -8,7 +8,7 @@ namespace H1GlProgBedømmelsesopgave.Codes
 {
     internal interface InterfaceH1
     {
-        public void Searcher();
-        public void AllData();
+        public record course(object value1, object value2);
+        public static object[,] AllData;
     }
 }
