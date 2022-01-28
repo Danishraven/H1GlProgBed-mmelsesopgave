@@ -22,29 +22,81 @@ namespace H1GlProgBedømmelsesopgave.Codes
                     break;
 
                 case "1":
-                    Console.WriteLine("Venligst skriv navnet på faget: ");
+                    Console.Write("Venligst skriv navnet på faget: ");
                     Navn = Console.ReadLine();
                     if (Navn != null)
                     {
+                        List<string> teacher = new List<string>();
                         H1.course i = H1.Searcher(Søgeord.Fag, Navn);
-                        List<string> teacher = (List<string>)i.value1;
-                        List<Students> students = (List<Students>)i.value2;
+                        foreach (object item in (List<object>)i.value1)
+                        {
+                            teacher.Add(item.ToString());
+                        }
+                        foreach (string item in teacher)
+                        {
+                            Console.WriteLine("Lærer: " + item);
+                        }
+                        foreach(object item in (List<object>)i.value2)
+                        {
+                            List<Students> students = (List<Students>) item;
+                            foreach (Students item2 in students)
+                            {
+                                string stringStud = item2.Fornavn + " " + item2.Efternavn;
+                                Console.WriteLine("Elev: " + stringStud);
+                            }
+                        }
                     }
                     break;
                 case "2":
-                    Console.WriteLine("Venligst skriv navnet på Læreren: ");
+                    Console.Write("Venligst skriv navnet på Læreren: ");
                     Navn = Console.ReadLine();
                     if (Navn != null)
                     {
-                        H1.Searcher(Søgeord.Lærer, Navn);
+                        List<string> fag = new List<string>();
+                        H1.course i = H1.Searcher(Søgeord.Lærer, Navn);
+                        foreach (object item in (List<object>)i.value1)
+                        {
+                            fag.Add(item.ToString());
+                        }
+                        foreach (string item in fag)
+                        {
+                            Console.WriteLine("Fag: " + item);
+                        }
+                        foreach (object item in (List<object>)i.value2)
+                        {
+                            List<Students> students = (List<Students>)item;
+                            foreach (Students item2 in students)
+                            {
+                                string stringStud = item2.Fornavn + " " + item2.Efternavn;
+                                Console.WriteLine("Elev: " + stringStud);
+                            }
+                        }
                     }
                     break;
                 case "3":
-                    Console.WriteLine("Venligst skriv navnet på Eleven: ");
+                    Console.Write("Venligst skriv navnet på Eleven: ");
                     Navn = Console.ReadLine();
                     if (Navn != null)
                     {
-                        H1.Searcher(Søgeord.Elev, Navn);
+                        List<string> fag = new List<string>();
+                        List<string> teacher = new List<string>();
+                        H1.course i = H1.Searcher(Søgeord.Elev, Navn);
+                        foreach (object item in (List<object>)i.value1)
+                        {
+                            fag.Add(item.ToString());
+                        }
+                        foreach (string item in fag)
+                        {
+                            Console.WriteLine("Fag: " + item);
+                        }
+                        foreach (object item in (List<object>)i.value2)
+                        {
+                            teacher.Add(item.ToString());
+                        }
+                        foreach (string item in teacher)
+                        {
+                            Console.WriteLine("Lærer: " + item);
+                        }
                     }
                     break;
             }

@@ -33,7 +33,6 @@ namespace H1GlProgBedømmelsesopgave.Codes
             };
             List<Students> stElever = new List<Students>
             {
-                new Students(){ Id = 1, Fornavn = "Jan", Efternavn = "Pedersen", TelefonNummer = "11111111"},
                 new Students(){ Id = 2, Fornavn = "Birger", Efternavn = "Bønneløkke", TelefonNummer = "22222222"},
                 new Students(){ Id = 3, Fornavn = "Peter", Efternavn = "Pedal", TelefonNummer = "33333333"}
             };
@@ -60,10 +59,8 @@ namespace H1GlProgBedømmelsesopgave.Codes
                 case Søgeord.Fag:
                     for (int i = 0; i < AllData.GetLength(0); i++)
                     {
-                        string test = AllData[i, 0].ToString();
                         if ((string?)AllData[i, 0] == input)
                         {
-                            Console.WriteLine("q");
                             value1.Add (AllData[i, 1]);
                             value2.Add (AllData[i, 2]);                            
                         }
@@ -72,10 +69,8 @@ namespace H1GlProgBedømmelsesopgave.Codes
                 case Søgeord.Lærer:
                     for (int i = 0; i < AllData.GetLength(0); i++)
                     {
-                        string test = AllData[i, 1].ToString();
                         if ((string?)AllData[i, 1] == input)
                         {
-                            Console.WriteLine("q");
                             value1.Add (AllData[i, 0]);
                             value2.Add (AllData[i, 2]);
                         }
@@ -91,12 +86,10 @@ namespace H1GlProgBedømmelsesopgave.Codes
                             {
                                 value1.Add (AllData[i, 0]);
                                 value2.Add (AllData[i, 1]);
-                                Console.WriteLine(value2);
                             }
                         }
                     }
                     break;
-
             }
             return new course(value1, value2);
         }
