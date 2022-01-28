@@ -1,0 +1,1 @@
+﻿global using H1GlProgBedømmelsesopgave.Codes;
